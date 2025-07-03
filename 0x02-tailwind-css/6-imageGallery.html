@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grid and Flexbox Layout</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Media query for main grid to switch columns on smaller screens */
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Gallery grid setup */
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    /* On small screens, gallery becomes 1 column */
+    @media (max-width: 768px) {
+      .image-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Make images responsive and cover their containers */
+    .image-gallery img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0.5rem;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body class="p-4">
+  <header class="bg-blue-500 text-white p-4">
+    <h1 class="text-3xl">Grid and Flexbox Layout</h1>
+  </header>
+
+  <main class="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4 min-h-screen">
+    <section class="lg:col-span-2 flex">
+      <div>Flexbox Item 1</div>
+      <div>Flexbox Item 2</div>
+    </section>
+    <aside class="bg-green-200 p-4">Sidebar</aside>
+  </main>
+
+  <!-- New Image Gallery Section -->
+  <section class="image-gallery">
+    <img src="https://picsum.photos/id/1015/600/400" alt="Gallery Image 1" />
+    <img src="https://picsum.photos/id/1016/600/400" alt="Gallery Image 2" />
+    <img src="https://picsum.photos/id/1018/600/400" alt="Gallery Image 3" />
+    <img src="https://picsum.photos/id/1020/600/400" alt="Gallery Image 4" />
+    <img src="https://picsum.photos/id/1024/600/400" alt="Gallery Image 5" />
+    <img src="https://picsum.photos/id/1027/600/400" alt="Gallery Image 6" />
+  </section>
+
+  <footer class="bg-gray-800 text-white p-4 mt-4">
+    <p>&copy; 2024 John Doe's Blog</p>
+  </footer>
+</body>
+</html>
